@@ -7,7 +7,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen flex-col justify-between">
       <Head>
-        <title>Sekker | {children.type.name.toLowerCase()}</title>
+        <title>Sekker</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header />
