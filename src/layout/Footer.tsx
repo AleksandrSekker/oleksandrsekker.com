@@ -8,7 +8,6 @@ import {
   faTelegram,
 } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
-import { type IconDefinition } from "@fortawesome/fontawesome-svg-core";
 const Footer = () => {
   return (
     <footer className="bg-pinkHeader bg-white p-4 dark:bg-gray-800 sm:p-6">
@@ -21,31 +20,31 @@ const Footer = () => {
           <div className="mt-4 flex justify-center space-x-6 sm:mt-0">
             <Link href="/">
               <FontAwesomeIcon
-                icon={faLinkedin as IconDefinition}
+                icon={faLinkedin}
                 className="h-4 w-4 text-white hover:text-black"
               />
             </Link>
             <Link href="/">
               <FontAwesomeIcon
-                icon={faInstagram as IconDefinition}
+                icon={faInstagram}
                 className="h-4 w-4 text-white hover:text-black"
               />
             </Link>
             <Link href="/">
               <FontAwesomeIcon
-                icon={faTelegram as IconDefinition}
+                icon={faTelegram}
                 className="h-4 w-4 text-white hover:text-black"
               />
             </Link>
             <Link href="/">
               <FontAwesomeIcon
-                icon={faFacebook as IconDefinition}
+                icon={faFacebook}
                 className="h-4 w-4 text-white hover:text-black"
               />
             </Link>
             <Link href="/">
               <FontAwesomeIcon
-                icon={faTwitter as IconDefinition}
+                icon={faTwitter}
                 className="h-4 w-4 text-white hover:text-black"
               />
             </Link>
