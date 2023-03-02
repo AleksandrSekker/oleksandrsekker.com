@@ -1,11 +1,11 @@
-const links = {
-  linkedin: "https://www.linkedin.com/in/oleksandr-sekker/",
-  github: "github.com/oleksandrsekker",
-  email: "oleksandr.sekker@gmail.com",
-  twitter: "https://twitter.com/oleksandrsekker",
-  facebook: "https://www.facebook.com/oleksandr.sekker",
-  instagram: "https://www.instagram.com/oleksandrsekker/",
-  telegram: "https://t.me/oleksandrsekker",
-  freecodecamp: "https://www.freecodecamp.org/oleksandrsekker",
+export const links = {
+  linkedin: "https://www.linkedin.com/in/aleksandr-sekker-521352161/",
+  github: "https://github.com/AleksandrSekker",
+  discord: "https://discordapp.com/users/613024264706064390",
+  instagram: "https://www.instagram.com/sekk_er/",
+  telegram: "https://t.me/sekk_er",
 };
-export default links;
+export const user = {
+  firstName: "Oleksandr",
+  lastName: "Sekker",
+};
