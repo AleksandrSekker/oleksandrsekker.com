@@ -11,7 +11,7 @@ import Link from "next/link";
 import { links, user } from "~/constants/general";
 const Footer = () => {
   return (
-    <footer className="bg-pinkHeader bg-white p-4 dark:bg-gray-800 sm:p-6">
+    <footer className="bg-pinkHeader bg-blue-500 p-4 dark:bg-gray-900 sm:p-6">
       <div className="mx-auto max-w-screen-xl">
         <div className="md:flex md:justify-between"></div>
         <div className="text-center sm:flex sm:items-center sm:justify-between">

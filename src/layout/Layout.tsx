@@ -6,7 +6,7 @@ import { user } from "~/constants/general";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex min-h-screen flex-col justify-between">
+    <div className="flex min-h-screen flex-col justify-between bg-white dark:bg-gray-800">
       <Head>
         <title>{user.lastName}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
