@@ -5,6 +5,12 @@ import {
   faLinkedin,
   faTelegram,
 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faBlog,
+  faBriefcase,
+  faContactCard,
+  faHome,
+} from "@fortawesome/free-solid-svg-icons";
 export const links = [
   {
     link: "https://discordapp.com/users/613024264706064390",
@@ -41,8 +47,8 @@ export const locales = [
   { id: 4, title: "fr", icon: "fr" },
 ];
 export const routes = [
-  { title: "Home", link: "/", id: 1 },
-  { title: "Portfolio", link: "/portfolio", id: 2 },
-  { title: "Contact", link: "/contact", id: 3 },
-  { title: "Blog", link: "/blog", id: 4 },
+  { title: "Home", link: "/", icon: faHome, id: 1 },
+  { title: "Portfolio", link: "/portfolio", icon: faBriefcase, id: 2 },
+  { title: "Contact", link: "/contact", icon: faContactCard, id: 3 },
+  { title: "Blog", link: "/blog", icon: faBlog, id: 4 },
 ];
