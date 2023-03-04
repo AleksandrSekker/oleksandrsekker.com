@@ -1,11 +1,19 @@
 import Link from "next/link";
-import React from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { locales, routes, user } from "~/constants/general";
 import { Select } from "~/components/Select/Select";
 import useDarkMode from "~/hooks/useDarkMode";
+import { Switch } from "@headlessui/react";
 
 const Header = () => {
   const [theme, setTheme] = useDarkMode();
+  const [enabled, setEnabled] = useState(true);
+  useEffect(() => {
+    setEnabled((localStorage.getItem("theme") as string) === "dark");
+  }, []);
+  useEffect(() => {
+    setTheme(enabled ? "dark" : "light");
+  }, [enabled, setTheme, theme]);
   return (
     <header>
       <nav className="h-[68px] border-gray-200 bg-blue-500 px-4 dark:bg-gray-900 lg:px-6">
@@ -16,46 +24,13 @@ const Header = () => {
             </span>
           </div>
           <div className="flex items-center lg:order-2">
-            <div className={"hidden lg:flex"}>
+            <div className={"my-auto hidden h-12 lg:flex"}>
               <Link
                 className="my-auto mr-2 ml-4 rounded-lg bg-violet-700 px-4 py-2 text-sm font-medium text-white text-white outline-none hover:bg-violet-900 focus:outline-none lg:px-5 lg:py-2.5"
                 href="/assets/Oleksandr_Sekker_Resume.pdf"
               >
                 Resume
               </Link>
-              {theme === "light" ? (
-                <svg
-                  onClick={() => setTheme("dark")}
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10 text-indigo-200"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  onClick={() => setTheme("light")}
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10 text-gray-900"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="#fff"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                  />
-                </svg>
-              )}
               <Select
                 data={locales.map(({ title, id, icon }) => ({
                   title: title.toUpperCase(),
@@ -63,6 +38,24 @@ const Header = () => {
                   icon,
                 }))}
               />
+              <div className={"my-auto ml-2"}>
+                <Switch checked={enabled} onChange={setEnabled} as={Fragment}>
+                  {({ checked }) => (
+                    <button
+                      className={`${
+                        checked ? "bg-blue-600" : "bg-gray-500"
+                      } relative inline-flex h-6 w-12 items-center rounded-full`}
+                    >
+                      <span className="sr-only">Enable notifications</span>
+                      <span
+                        className={`${
+                          checked ? "translate-x-6" : "translate-x-1"
+                        } inline-block h-5 w-5 transform rounded-full bg-white transition  `}
+                      />
+                    </button>
+                  )}
+                </Switch>
+              </div>
             </div>
             <div className={"flex bg-blue-600 lg:hidden"}>
               {/*<Sidebar />*/}
@@ -77,7 +70,7 @@ const Header = () => {
                 <Link
                   href={link}
                   key={id}
-                  className="mr-2 rounded-lg px-4 py-2 text-sm font-medium text-white text-white outline-none hover:bg-white focus:outline-none dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:px-5 lg:py-2.5"
+                  className="mr-2 rounded-lg px-4 py-2 text-sm font-medium text-white text-white outline-none hover:bg-gray-700 focus:outline-none dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:px-5 lg:py-2.5"
                   aria-current="page"
                 >
                   {title}
