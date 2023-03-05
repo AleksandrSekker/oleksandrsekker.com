@@ -4,6 +4,7 @@ import { locales, routes, user } from "~/constants/general";
 import { Select } from "~/components/Select/Select";
 import useDarkMode from "~/hooks/useDarkMode";
 import { Switch } from "@headlessui/react";
+import Sidebar from "~/layout/Sidebar/Sidebar";
 
 const Header = () => {
   const [theme, setTheme] = useDarkMode();
@@ -58,7 +59,7 @@ const Header = () => {
               </div>
             </div>
             <div className={"flex bg-blue-600 lg:hidden"}>
-              {/*<Sidebar />*/}
+              <Sidebar />
             </div>
           </div>
           <div
