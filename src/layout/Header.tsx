@@ -5,6 +5,7 @@ import { Select } from "~/components/Select/Select";
 import useDarkMode from "~/hooks/useDarkMode";
 import { Switch } from "@headlessui/react";
 import Sidebar from "~/layout/Sidebar/Sidebar";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [theme, setTheme] = useDarkMode();
@@ -15,6 +16,7 @@ const Header = () => {
   useEffect(() => {
     setTheme(enabled ? "dark" : "light");
   }, [enabled, setTheme, theme]);
+  const router = useRouter();
   return (
     <header>
       <nav className="h-[68px] border-gray-200 bg-blue-500 px-4 dark:bg-gray-900 lg:px-6">
@@ -71,7 +73,12 @@ const Header = () => {
                 <Link
                   href={link}
                   key={id}
-                  className="mr-2 rounded-lg px-4 py-2 text-sm font-medium text-white text-white outline-none hover:bg-gray-700 focus:outline-none dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:px-5 lg:py-2.5"
+                  className={`mr-2 rounded-lg px-4 py-2 text-sm font-medium text-white text-white outline-none hover:bg-blue-400 focus:outline-none dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:px-5 lg:py-2.5
+                    ${
+                      router.pathname == link
+                        ? "bg-blue-400 dark:bg-gray-700"
+                        : ""
+                    }`}
                   aria-current="page"
                 >
                   {title}
