@@ -48,7 +48,8 @@ export const locales = [
 ];
 export const routes = [
   { title: "Home", link: "/", icon: faHome, id: 1 },
-  { title: "Portfolio", link: "/portfolio", icon: faBriefcase, id: 2 },
-  { title: "Contact", link: "/contact", icon: faContactCard, id: 3 },
-  { title: "Blog", link: "/blog", icon: faBlog, id: 4 },
+  { title: "About", link: "/about", icon: faHome, id: 2 },
+  { title: "Portfolio", link: "/portfolio", icon: faBriefcase, id: 3 },
+  { title: "Contact", link: "/contact", icon: faContactCard, id: 4 },
+  { title: "Blog", link: "/blog", icon: faBlog, id: 5 },
 ];
