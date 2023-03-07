@@ -1,12 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { isValidUrl } from "~/utils/generalUtils";
+import {
+  defaultProjectTech,
+  defaultProjectTitle,
+  placeholderImage,
+} from "~/constants/general";
 
 type ProjectItemProps = {
   title: string;
   backgroundImg: string;
   tech: string;
   projectUrl: string;
+  t: (key: string) => string;
 };
 
 const ProjectItem = ({
@@ -14,26 +21,34 @@ const ProjectItem = ({
   backgroundImg,
   tech,
   projectUrl,
+  t,
 }: ProjectItemProps) => {
+  const [imgSrc, setImgSrc] = useState(backgroundImg);
+
   return (
-    <div className="group relative flex w-full items-center justify-center rounded-xl from-[#5651e5] to-[#709dff] hover:bg-gradient-to-r">
+    <div className="group relative flex items-center justify-center rounded-xl shadow-md shadow-gray-900 hover:bg-blue-500 dark:shadow-md dark:shadow-gray-400 dark:hover:bg-gray-500">
       <Image
-        className="rounded-xl group-hover:opacity-10"
-        src={backgroundImg}
-        alt="/"
+        className="h-full w-full rounded-xl group-hover:opacity-10"
+        src={imgSrc}
+        onError={() => setImgSrc(placeholderImage)}
+        alt="Project Image"
         width={400}
-        height={400}
+        height={200}
       />
       <div className="absolute top-[50%] left-[50%] hidden translate-x-[-50%] translate-y-[-50%] group-hover:block">
         <h3 className="text-center text-2xl tracking-wider text-white">
-          {title}
+          {t(title) || t(defaultProjectTitle)}
         </h3>
-        <p className="pb-4 pt-2 text-center text-white">{tech}</p>
-        <Link href={projectUrl}>
-          <p className="cursor-pointer rounded-lg bg-white py-3 text-center text-lg font-bold text-gray-700">
-            More Info
-          </p>
-        </Link>
+        <p className="pb-4 pt-2 text-center text-white">
+          {t(tech) || t(defaultProjectTech)}
+        </p>
+        {isValidUrl(projectUrl) ? (
+          <Link href={projectUrl}>
+            <p className="cursor-pointer rounded-lg bg-white py-3 text-center text-lg font-bold text-gray-700 dark:bg-gray-800 dark:text-white">
+              {t("buttonText")}
+            </p>
+          </Link>
+        ) : null}
       </div>
     </div>
   );
