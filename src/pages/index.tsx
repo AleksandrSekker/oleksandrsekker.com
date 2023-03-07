@@ -31,7 +31,7 @@ const Home: NextPage = () => {
           className={
             "order-last mx-auto rounded-lg duration-300 ease-in hover:scale-105 md:order-first lg:mx-0"
           }
-          src={"/assets/avatar.jpg"}
+          src={"/assets/Avatar.jpg"}
           width={400}
           height={400}
           alt={"my avatar"}
