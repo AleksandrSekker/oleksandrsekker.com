@@ -1,25 +1,34 @@
 import React from "react";
 import ProjectItem from "~/components/ProjectItem/ProjectItem";
 import { projects } from "~/constants/general";
+import nextI18nConfig from "../../next-i18next.config.mjs";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+
+export const getServerSideProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(
+      locale,
+      ["projects", "common"],
+      nextI18nConfig
+    )),
+  },
+});
 const Projects = () => {
+  const { t } = useTranslation("projects");
   return (
-    <div id="projects" className="w-full">
-      <div className="mx-auto max-w-[1240px] px-2 py-16">
-        <p className="text-xl uppercase tracking-widest text-[#5651e5]">
-          Projects
-        </p>
-        <h2 className="py-4">What I&apos;ve Built</h2>
-        <div className="grid gap-8 md:grid-cols-3">
-          {projects.map(({ title, backgroundImg, projectUrl, tech, id }) => (
-            <ProjectItem
-              title={title}
-              backgroundImg={backgroundImg}
-              projectUrl={projectUrl}
-              tech={tech}
-              key={id}
-            />
-          ))}
-        </div>
+    <div className="mx-auto max-w-screen-xl p-2">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 ">
+        {projects.map(({ title, backgroundImg, projectUrl, tech, id }) => (
+          <ProjectItem
+            title={title}
+            backgroundImg={backgroundImg}
+            projectUrl={projectUrl}
+            tech={tech}
+            key={id}
+            t={t}
+          />
+        ))}
       </div>
     </div>
   );

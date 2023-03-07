@@ -1,18 +1,30 @@
 import { type NextPage } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
+import nextI18nConfig from "../../next-i18next.config.mjs";
+
+export const getServerSideProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(
+      locale,
+      ["home", "common"],
+      nextI18nConfig
+    )),
+  },
+});
 const Home: NextPage = () => {
+  const { t } = useTranslation("home");
   return (
     <>
       <div className="mx-auto flex w-full max-w-screen-xl flex-wrap items-center justify-between px-4 text-center xl:px-0">
         <div className={"mx-auto text-center lg:mx-0"}>
           <h2 className="py-2 text-5xl font-medium text-teal-400 dark:text-blue-500 md:text-6xl">
-            Oleksandr
+            {t("title")}
           </h2>
-          <h3 className="py-2 text-2xl dark:text-white">
-            A Front-End Web Developer
-          </h3>
+          <h3 className="py-2 text-2xl dark:text-white">{t("subtitle")}</h3>
           <p className="text-md mx-auto max-w-xl py-5 leading-8 text-gray-800 dark:text-gray-200 md:text-xl">
-            I’m focused on building responsive front-end web applications
+            {t("description")}
           </p>
         </div>
         <Image

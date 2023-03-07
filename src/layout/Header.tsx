@@ -17,6 +17,7 @@ const Header = () => {
     setTheme(enabled ? "dark" : "light");
   }, [enabled, setTheme, theme]);
   const router = useRouter();
+
   return (
     <header>
       <nav className="h-[68px] border-gray-200 bg-blue-500 px-4 dark:bg-gray-900 lg:px-6">

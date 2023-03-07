@@ -13,7 +13,7 @@ export const Select = ({ data }: ISelectProps) => {
   const [selectedLanguage, setSelectedLanguage] = useState(
     selectedLanguageInitial ? selectedLanguageInitial[0] : data[0]
   );
-  console.log(locale);
+
   useEffect(() => {
     if (selectedLanguage) {
       localStorage.setItem("language", selectedLanguage.title);

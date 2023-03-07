@@ -1,17 +1,23 @@
 import {
+  faBootstrap,
+  faCss3,
   faDiscord,
   faGithub,
+  faHtml5,
   faInstagram,
+  faJs,
   faLinkedin,
+  faReact,
   faTelegram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  // faBlog,
-  // faBriefcase,
-  // faContactCard,
+  faBlog,
+  faBriefcase,
+  faContactCard,
   faEnvelope,
   faHome,
+  faInfo,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 export const links = [
@@ -35,6 +41,39 @@ export const links = [
     link: "https://twitter.com/AleksandrSekker",
     id: 3,
     icon: faTwitter,
+  },
+];
+
+export const skills = [
+  {
+    title: "HTML",
+    icon: faHtml5,
+    link: "https://www.w3schools.com/html/",
+    id: 1,
+  },
+  {
+    title: "CSS",
+    icon: faCss3,
+    link: "https://www.w3schools.com/css/",
+    id: 2,
+  },
+  {
+    title: "JavaScript",
+    icon: faJs,
+    link: "https://www.w3schools.com/js/",
+    id: 3,
+  },
+  {
+    title: "React",
+    icon: faReact,
+    link: "https://reactjs.org/",
+    id: 4,
+  },
+  {
+    title: "Bootstrap",
+    icon: faBootstrap,
+    link: "https://getbootstrap.com/",
+    id: 5,
   },
 ];
 
@@ -63,46 +102,32 @@ export const linksContact = [
 
 export const projects = [
   {
-    title: "Default title",
-    backgroundImg: "/assets/avatar.jpg",
-    projectUrl: "/",
-    tech: "Next JS",
+    title: "internship",
+    backgroundImg: "/assets/Internship.png",
+    projectUrl: "https://aleksandrsekker.github.io/onix",
+    tech: "reactredux",
     id: 1,
   },
   {
-    title: "Default title",
-    backgroundImg: "/assets/avatar.jpg",
-    projectUrl: "/",
-    tech: "Next JS",
+    title: "oldpersonal",
+    backgroundImg: "/assets/OldPersonalPage.png",
+    projectUrl: "https://aleksandrsekker.github.io/resume/",
+    tech: "react",
     id: 2,
   },
   {
-    title: "Default title",
-    backgroundImg: "/assets/avatar.jpg",
-    projectUrl: "/",
-    tech: "Next JS",
+    title: "test",
+    backgroundImg: "/assets/TestFirst.png",
+    projectUrl: "https://aleksandrsekker.github.io/bandapixelstest/",
+    tech: "react",
     id: 3,
   },
   {
-    title: "Default title",
-    backgroundImg: "/assets/avatar.jpg",
-    projectUrl: "/",
-    tech: "Next JS",
+    title: "test",
+    backgroundImg: "/assets/TestSecond.png",
+    projectUrl: "https://aleksandrsekker.github.io/clinic/",
+    tech: "Bootstrap",
     id: 4,
-  },
-  {
-    title: "Default title",
-    backgroundImg: "/assets/avatar.jpg",
-    projectUrl: "/",
-    tech: "Next JS",
-    id: 5,
-  },
-  {
-    title: "Default title",
-    backgroundImg: "/assets/avatar.jpg",
-    projectUrl: "/",
-    tech: "Next JS",
-    id: 6,
   },
 ];
 export const user = {
@@ -112,16 +137,20 @@ export const user = {
 
 export const locales = [
   { id: 1, title: "en", icon: "gb" },
-  { id: 1, title: "ua", icon: "ua" },
+  { id: 1, title: "uk", icon: "ua" },
   { id: 2, title: "es", icon: "es" },
   { id: 3, title: "de", icon: "de" },
   { id: 4, title: "fr", icon: "fr" },
 ];
 export const routes = [
   { title: "Home", link: "/", icon: faHome, id: 1 },
-  { title: "About", link: "/about", icon: faHome, id: 2 },
-  // { title: "Projects", link: "/projects", icon: faBriefcase, id: 3 },
-  // { title: "Contact", link: "/contact", icon: faContactCard, id: 4 },
-  // { title: "Skills", link: "/skills", icon: faBlog, id: 5 },
+  { title: "About", link: "/about", icon: faInfo, id: 2 },
+  { title: "Projects", link: "/projects", icon: faBriefcase, id: 3 },
+  { title: "Skills", link: "/skills", icon: faBlog, id: 4 },
+  { title: "Contact", link: "/contact", icon: faContactCard, id: 5 },
   // { title: "Blog", link: "/blog", icon: faBlog, id: 6 },
 ];
+
+export const placeholderImage = "/assets/DefaultProject.jpg";
+export const defaultProjectTitle = "defaultProjectTitle";
+export const defaultProjectTech = "defaultProjectTech";
