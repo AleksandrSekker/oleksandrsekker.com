@@ -41,6 +41,16 @@ export const links = [
     id: 3,
     icon: faTwitter,
   },
+  {
+    link: "https://www.linkedin.com/in/aleksandr-sekker-521352161/",
+    id: 4,
+    icon: faLinkedin,
+  },
+  {
+    link: "github.com/AleksandrSekker",
+    id: 5,
+    icon: faGithub,
+  },
 ];
 
 export const skills = [
