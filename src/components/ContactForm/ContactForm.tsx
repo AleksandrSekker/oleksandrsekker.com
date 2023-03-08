@@ -1,28 +1,68 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import Input from "~/components/Input/Input";
+import { schema } from "~/components/ContactForm/schema";
+import axios from "axios";
 
 type Props = {
   t: (key: string) => string;
 };
+type SendMailTypes = {
+  email: string;
+  subject: string;
+  message: string;
+  name: string;
+  phone: string;
+};
 const ContactForm = ({ t }: Props) => {
-  const schema = z.object({
-    name: z.string().nonempty().min(2),
-    phone: z.string().nonempty().min(2),
-    email: z.string().nonempty().email(),
-    subject: z.string().nonempty().min(2),
-    message: z.string().min(8),
+  const [responseMessage, setResponseMessage] = useState({
+    isSuccessful: false,
+    message: "",
   });
   const { register, handleSubmit, formState, watch } = useForm({
     resolver: zodResolver(schema),
     mode: "onSubmit",
   });
   const { errors } = formState;
-  const sendHandler = useCallback(() => {
+  const sendHandler = useCallback(async () => {
     console.log("watch", watch());
+    try {
+      const req = await sendEmail(watch() as SendMailTypes);
+      if (req.status === 250) {
+        setResponseMessage({
+          isSuccessful: true,
+          message: "Thank you for your message.",
+        });
+      }
+    } catch (e) {
+      console.log(e);
+      setResponseMessage({
+        isSuccessful: false,
+        message: "Oops something went wrong. Please try again.",
+      });
+    }
   }, [watch]);
+  console.log(responseMessage);
+  const sendEmail = async ({
+    email,
+    subject,
+    message,
+    name,
+    phone,
+  }: SendMailTypes) => {
+    return axios({
+      method: "post",
+      url: "/api/send-mail",
+      data: {
+        email,
+        subject,
+        message,
+        name,
+        phone,
+      },
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit(sendHandler)}>

@@ -1,5 +1,4 @@
 import {
-  faBootstrap,
   faCss3,
   faDiscord,
   faGithub,
@@ -69,12 +68,6 @@ export const skills = [
     link: "https://reactjs.org/",
     id: 4,
   },
-  {
-    title: "Bootstrap",
-    icon: faBootstrap,
-    link: "https://getbootstrap.com/",
-    id: 5,
-  },
 ];
 
 export const linksContact = [
@@ -100,6 +93,39 @@ export const linksContact = [
   },
 ];
 
+export const workProject = [
+  {
+    title: "sustieProfile",
+    backgroundImg: "/assets/SustieProfile.png",
+    projectUrl: "https://profile.sustie.io/",
+    tech: "react",
+    id: 1,
+  },
+  {
+    title: "sustieBeta",
+    backgroundImg: "/assets/SustieBeta.png",
+    projectUrl:
+      "https://chrome.google.com/webstore/detail/sustie-beta/oofnkbbcbnehianmlfofhcedenjdeeba",
+    tech: "react",
+    id: 2,
+  },
+  {
+    title: "nimble",
+    backgroundImg: "/assets/Nimble.png",
+    projectUrl:
+      "https://onboarding.nimblefi.com/centralbankonline.com/onboarding",
+    tech: "reacttstailwind",
+    id: 3,
+  },
+  {
+    title: "truGreat",
+    backgroundImg: "/assets/TrueGreat.png",
+    projectUrl:
+      "https://apps.apple.com/en/app/trugreat-mentorship-app/id1575183130",
+    tech: "rnredux",
+    id: 4,
+  },
+];
 export const projects = [
   {
     title: "internship",
