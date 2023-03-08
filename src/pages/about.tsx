@@ -3,6 +3,7 @@ import Image from "next/image";
 import nextI18nConfig from "../../next-i18next.config.mjs";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import PageTitle from "~/components/PageTitle/PageTitle";
 
 export const getServerSideProps = async ({ locale }: { locale: string }) => ({
   props: {
@@ -23,16 +24,14 @@ const About = () => {
     >
       <div className="m-auto max-w-screen-xl grid-cols-3 gap-8 md:grid">
         <div className="col-span-2">
-          <p className="text-xl uppercase tracking-widest text-blue-700 dark:text-blue-400">
-            {t("title")}
-          </p>
+          <PageTitle title={t("title")} />
           <p className="py-2 text-black dark:text-white">{t("description1")}</p>
           <p className="py-2 text-black dark:text-white">{t("description2")}</p>
           <p className="py-2 text-black dark:text-white">{t("description3")}</p>
           <p className="py-2 text-black dark:text-white">{t("description4")}</p>
         </div>
         <Image
-          src="/assets/AvatarSecond.jpg"
+          src="/assets/Avatar.jpg"
           width={400}
           height={400}
           className="order-last mx-auto rounded-lg duration-300 ease-in hover:scale-105 md:order-first lg:mx-0"
