@@ -31,7 +31,7 @@ const About = () => {
           <p className="py-2 text-black dark:text-white">{t("description4")}</p>
         </div>
         <Image
-          src="/assets/AvatarSecond.jpg"
+          src="/assets/Avatar.jpg"
           width={400}
           height={400}
           className="order-last mx-auto rounded-lg duration-300 ease-in hover:scale-105 md:order-first lg:mx-0"
