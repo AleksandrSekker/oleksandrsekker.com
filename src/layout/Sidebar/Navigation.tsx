@@ -13,11 +13,13 @@ const variants = {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };
-
-export const Navigation = () => (
+interface ToggleInterface {
+  toggle: () => void;
+}
+export const Navigation = ({ toggle }: ToggleInterface) => (
   <motion.ul className={styles.ul} variants={variants}>
     {routes.map(({ icon, title, link, id }) => (
-      <Link href={link} key={id}>
+      <Link href={link} onClick={toggle} key={id}>
         <MenuItem icon={icon} text={title} key={id} />
       </Link>
     ))}
