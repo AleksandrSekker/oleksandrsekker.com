@@ -55,7 +55,7 @@ For the DATABASE_URL, you can create database here [railway](https://railway.app
 
 Run the project:
 ```
-$ npm dev 
+$ npm run dev 
 ```
 ## Link to deployed web app
 
