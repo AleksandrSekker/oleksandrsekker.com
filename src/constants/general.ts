@@ -1,12 +1,8 @@
 import {
-  faCss3,
   faDiscord,
   faGithub,
-  faHtml5,
   faInstagram,
-  faJs,
   faLinkedin,
-  faReact,
   faTelegram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
@@ -56,27 +52,75 @@ export const links = [
 export const skills = [
   {
     title: "HTML",
-    icon: faHtml5,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
     link: "https://www.w3schools.com/html/",
     id: 1,
   },
   {
     title: "CSS",
-    icon: faCss3,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
     link: "https://www.w3schools.com/css/",
     id: 2,
   },
   {
     title: "JavaScript",
-    icon: faJs,
-    link: "https://www.w3schools.com/js/",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg",
+    link: "https://www.javascript.com/",
     id: 3,
   },
   {
     title: "React",
-    icon: faReact,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     link: "https://reactjs.org/",
     id: 4,
+  },
+  {
+    title: "Next.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg",
+    link: "https://nextjs.org/",
+    id: 5,
+  },
+  {
+    title: "TypeScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg",
+    link: "https://www.typescriptlang.org/",
+    id: 6,
+  },
+  {
+    title: "TailwindCSS",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    link: "https://tailwindcss.com/",
+    id: 7,
+  },
+  {
+    title: "Redux",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
+    link: "https://redux.js.org/",
+    id: 8,
+  },
+  {
+    title: "Git",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    link: "https://git-scm.com/",
+    id: 9,
+  },
+  {
+    title: "SCSS",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+    link: "https://sass-lang.com/",
+    id: 10,
+  },
+  {
+    title: "Docker",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    link: "https://www.docker.com/",
+    id: 11,
+  },
+  {
+    title: "Eslint",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg",
+    link: "https://eslint.org/",
+    id: 12,
   },
 ];
 
