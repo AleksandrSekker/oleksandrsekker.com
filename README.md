@@ -1,28 +1,62 @@
-# Create T3 App
+# Table of Contents
+- General Info
+- Tech info
+- Link to deployed web app
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## General Info
+My personal website built with the [T3 Stack](https://create.t3.gg/).
 
-## What's next? How do I make an app with this?
-
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
-
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
-
+## Tech info
 - [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
 - [Prisma](https://prisma.io)
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
+- [TypeScript](https://www.typescriptlang.org)
+- [railway](https://railway.app)
+- [react-hook-form](https://react-hook-form.com)
+- [i18next](https://www.i18next.com)
+- [i18nexus](https://i18nexus.com)
+- [framer motion](https://www.framer.com/motion/)
+- [headlessUI](https://headlessui.dev)
+- [fontawesome](https://fontawesome.com)
 
-## Learn More
+## <a name="installation"></a>Installation
+To have this app running on your local computer, please follow the below steps:
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+Clone repository:
+```
+$ git clone https://github.com/AleksandrSekker/oleksandrsekker.com.git
+```
+or
+```
+$ git clone git@github.com:AleksandrSekker/oleksandrsekker.com.git
+```
+Navigate to the project folder:
+```
+$ cd oleksandrsekker.com
+```
+Install project dependencies:
+```
+$ npm install
+```
+add .env.local file with the following variables: I18NEXUS_API_KEY, GMAIL_EMAIL_ADDRESS, GMAIL_APP_PASSWORD, DATABASE_URL, NEXTAUTH_SECRET, NEXTAUTH_URL, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET
+### Remember to add your own values for the variables. This is required for localisation and email sending
+For the I18NEXUS_API_KEY, you can get it from [i18nexus](https://i18nexus.com)
+For the GMAIL_EMAIL_ADDRESS and GMAIL_APP_PASSWORD, you can get it from [Google](https://myaccount.google.com/apppasswords)
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+### Not required, but recommended. Now it's not used but in future version i plan to use it
+#### Discord login
+For the DISCORD_CLIENT_ID and DISCORD_CLIENT_SECRET, you can get it from [Discord](https://discord.com/developers/applications)
+For the NEXTAUTH_URL, you can get it from [localhost](http://localhost:3000)
+#### Database
+For the DATABASE_URL, you can create database here [railway](https://railway.app)
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
 
-## How do I deploy this?
+Run the project:
+```
+$ npm dev 
+```
+## Link to deployed web app
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+### https://oleksandrsekker.com/
