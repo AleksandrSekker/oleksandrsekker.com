@@ -8,11 +8,14 @@ import Link from "next/link";
 const variants = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2, zIndex: 1 },
-    initial: { x: -330 },
+    x: 0,
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-    initial: { x: -330 },
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+    x: -400,
   },
 };
 interface ToggleInterface {
