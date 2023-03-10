@@ -33,7 +33,7 @@ export const Sidebar = () => {
 
   return (
     <motion.nav
-      className={isOpen ? styles.nav : ""}
+      className={styles.nav}
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
