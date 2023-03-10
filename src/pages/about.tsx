@@ -3,7 +3,6 @@ import nextI18nConfig from "../../next-i18next.config.mjs";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import PageTitle from "~/components/PageTitle/PageTitle";
-import { motion } from "framer-motion";
 import AvatarImage from "~/components/AvatarImage/AvatarImage";
 import RightBlockWrapper from "~/components/RightBlockWrapper/RightBlockWrapper";
 

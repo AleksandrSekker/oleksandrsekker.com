@@ -1,13 +1,10 @@
-import React, { type ReactNode } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import {
   type FieldError,
-  type FieldErrors,
-  FieldErrorsImpl,
   type FieldValues,
   type UseFormRegister,
 } from "react-hook-form";
-import { Merge } from "yaml/types";
 
 interface InputProps {
   title: string;
