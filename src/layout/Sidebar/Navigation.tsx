@@ -7,19 +7,26 @@ import Link from "next/link";
 
 const variants = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.07, delayChildren: 0.2, zIndex: 1 },
+    initial: { x: -330 },
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    initial: { x: -330 },
   },
 };
 interface ToggleInterface {
   toggle: () => void;
+  isOpen: boolean;
 }
-export const Navigation = ({ toggle }: ToggleInterface) => (
+export const Navigation = ({ toggle, isOpen }: ToggleInterface) => (
   <motion.ul className={styles.ul} variants={variants}>
     {routes.map(({ icon, title, link, id }) => (
-      <Link href={link} onClick={toggle} key={id}>
+      <Link
+        href={isOpen ? link : ""}
+        onClick={isOpen ? toggle : () => null}
+        key={id}
+      >
         <MenuItem icon={icon} text={title} key={id} />
       </Link>
     ))}
