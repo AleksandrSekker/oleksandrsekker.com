@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { type FieldError, useForm } from "react-hook-form";
 import Input from "~/components/Input/Input";
 import { schema } from "~/components/ContactForm/schema";
 import axios from "axios";
@@ -73,7 +73,7 @@ const ContactForm = ({ t }: Props) => {
           type={"text"}
           register={register}
           name="name"
-          errors={errors.name}
+          errors={errors.name as FieldError}
           className={"flex flex-col"}
         />
         <Input
@@ -82,7 +82,7 @@ const ContactForm = ({ t }: Props) => {
           type={"text"}
           register={register}
           name="phone"
-          errors={errors.phone}
+          errors={errors.phone as FieldError}
           className={"flex flex-col"}
         />
       </div>
@@ -92,7 +92,7 @@ const ContactForm = ({ t }: Props) => {
         type={"text"}
         register={register}
         name="email"
-        errors={errors.email}
+        errors={errors.email as FieldError}
         className={"flex flex-col py-2"}
       />
       <Input
@@ -102,7 +102,7 @@ const ContactForm = ({ t }: Props) => {
         type={"textarea"}
         register={register}
         name="subject"
-        errors={errors.subject}
+        errors={errors.subject as FieldError}
       />
       <Input
         className="flex flex-col py-2"
@@ -111,7 +111,7 @@ const ContactForm = ({ t }: Props) => {
         type={"textarea"}
         register={register}
         name="message"
-        errors={errors.message}
+        errors={errors?.message as FieldError}
       />
 
       <button

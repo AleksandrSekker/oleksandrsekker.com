@@ -1,15 +1,23 @@
-import React from "react";
-import { type FieldValues, type UseFormRegister } from "react-hook-form";
+import React, { type ReactNode } from "react";
+import { motion } from "framer-motion";
+import {
+  type FieldError,
+  type FieldErrors,
+  FieldErrorsImpl,
+  type FieldValues,
+  type UseFormRegister,
+} from "react-hook-form";
+import { Merge } from "yaml/types";
 
-type InputProps = {
+interface InputProps {
   title: string;
   placeholder: string;
   type: string;
   className: string;
   name: string;
   register: UseFormRegister<FieldValues>;
-  errors: any;
-};
+  errors: FieldError | undefined;
+}
 
 const Input = ({
   title,
@@ -41,7 +49,15 @@ const Input = ({
         />
       )}
       {isErrorExist && (
-        <div className="mt-2 text-red-600">{errors?.message}</div>
+        <motion.p
+          animate={{ y: [-10, 0], opacity: 1, scale: 1 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          className="mt-2 text-red-600"
+        >
+          {errors?.message}
+        </motion.p>
       )}
     </div>
   );
