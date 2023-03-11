@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
-import { locales, routes, user } from "~/constants/general";
-import { Select } from "~/components/Select/Select";
+import { routes, user } from "~/constants/general";
 import useDarkMode from "~/hooks/useDarkMode";
 import { Switch } from "@headlessui/react";
 import Sidebar from "~/layout/Sidebar/Sidebar";
@@ -29,19 +28,6 @@ const Header = () => {
           </div>
           <div className="flex items-center lg:order-2">
             <div className={"my-auto hidden h-12 lg:flex"}>
-              <Link
-                className="my-auto mr-2 ml-4 rounded-lg bg-violet-700 px-4 py-2 text-sm font-medium text-white text-white outline-none hover:bg-violet-900 focus:outline-none lg:px-5 lg:py-2.5"
-                href="/assets/Oleksandr_Sekker_Resume.pdf"
-              >
-                Resume
-              </Link>
-              <Select
-                data={locales.map(({ title, id, icon }) => ({
-                  title: title.toUpperCase(),
-                  id,
-                  icon,
-                }))}
-              />
               <div className={"my-auto ml-2"}>
                 <Switch checked={enabled} onChange={setEnabled} as={Fragment}>
                   {({ checked }) => (
