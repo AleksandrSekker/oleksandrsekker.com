@@ -11,17 +11,15 @@ import {
 type ProjectItemProps = {
   title: string;
   backgroundImg: string;
-  tech: string;
+  tags: string[];
   projectUrl: string;
-  t: (key: string) => string;
 };
 
 const ProjectItem = ({
   title,
   backgroundImg,
-  tech,
+  tags,
   projectUrl,
-  t,
 }: ProjectItemProps) => {
   const [imgSrc, setImgSrc] = useState(backgroundImg);
 
@@ -37,15 +35,18 @@ const ProjectItem = ({
       />
       <div className="absolute top-[50%] left-[50%] hidden translate-x-[-50%] translate-y-[-50%] group-hover:block">
         <h3 className="text-center text-2xl tracking-wider text-white">
-          {t(title) || t(defaultProjectTitle)}
+          {title || defaultProjectTitle}
         </h3>
-        <p className="pb-4 pt-2 text-center text-white">
-          {t(tech) || t(defaultProjectTech)}
-        </p>
+        {tags.map((tech) => (
+          <p key={tech} className="pb-4 pt-2 text-center text-white">
+            {tech || defaultProjectTech}
+          </p>
+        ))}
+
         {isValidUrl(projectUrl) ? (
           <Link href={projectUrl}>
             <p className="cursor-pointer rounded-lg bg-white py-3 text-center text-lg font-bold text-gray-700 dark:bg-gray-800 dark:text-white">
-              {t("buttonText")}
+              Learn More
             </p>
           </Link>
         ) : null}

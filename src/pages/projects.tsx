@@ -1,34 +1,26 @@
 import React from "react";
 import ProjectItem from "~/components/ProjectItem/ProjectItem";
-import { workProject } from "~/constants/general";
-import nextI18nConfig from "../../next-i18next.config.mjs";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import PageTitle from "~/components/PageTitle/PageTitle";
+import { api } from "~/utils/api";
+import { CircleLoader } from "react-spinners";
 
-export const getServerSideProps = async ({ locale }: { locale: string }) => ({
-  props: {
-    ...(await serverSideTranslations(
-      locale,
-      ["projects", "common"],
-      nextI18nConfig
-    )),
-  },
-});
 const Projects = () => {
-  const { t } = useTranslation("projects");
+  const { data: projects, isLoading } = api.projects.getAll.useQuery();
+
+  if (isLoading) {
+    return <CircleLoader className={"mx-auto"} color="#36d7b7" />;
+  }
   return (
     <div className="mx-auto max-w-screen-xl p-2">
-      <PageTitle title={t("workProjects")} className="mb-4" />
+      <PageTitle title={"workProjects"} className="mb-4" />
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 ">
-        {workProject.map(({ title, backgroundImg, projectUrl, tech, id }) => (
+        {projects?.map(({ title, image, tags, link, id }) => (
           <ProjectItem
             title={title}
-            backgroundImg={backgroundImg}
-            projectUrl={projectUrl}
-            tech={tech}
+            backgroundImg={image}
+            projectUrl={link}
+            tags={tags}
             key={id}
-            t={t}
           />
         ))}
       </div>

@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "postgresql"
     // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
     // Further reading:
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
@@ -27,12 +27,12 @@ model Account {
     type              String
     provider          String
     providerAccountId String
-    refresh_token     String? // @db.Text
-    access_token      String? // @db.Text
+    refresh_token     String? @db.Text
+    access_token      String? @db.Text
     expires_at        Int?
     token_type        String?
     scope             String?
-    id_token          String? // @db.Text
+    id_token          String? @db.Text
     session_state     String?
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -63,4 +63,76 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Guestbook {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    name      String
+    message   String   @db.VarChar(100)
+}
+
+model Blogpost {
+  id    String @unique @default(uuid())
+  title String
+  body  String
+  tags  String[]
+  image String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Personalinfo {
+  id    String @unique @default(uuid())
+  firstName String
+  lastName String
+  jobTitle String
+  subTitle String
+  image String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model About {
+  id    String @unique @default(uuid())
+  title String
+  body  String[]
+  image String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Skill {
+  id    String @unique @default(uuid())
+  title String
+  icon String
+  link String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id    String @unique @default(uuid())
+  title String
+  image String
+  link  String
+  tags  String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Socials {
+  id    String @unique @default(uuid())
+  link String
+  icon String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Routes {
+  id    String @unique @default(uuid())
+  title String
+  link  String
+  icon String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
