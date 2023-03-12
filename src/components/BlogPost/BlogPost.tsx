@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import CardWrapper from "~/components/CardWrapper/CardWrapper";
+import parse from "html-react-parser";
 
 interface BlogPostProps {
   id: string;
@@ -30,8 +31,12 @@ const BlogPost = ({
             <p key={tag}>{tag}</p>
           ))}
         </div>
-        {/*<span>{body}</span>*/}
-        <p>{`Updated at: ${updatedAt.toLocaleDateString()}`}</p>
+        <article className="prose lg:prose-xl">{parse(body)}</article>
+        <p>{`Updated at: ${updatedAt.toLocaleDateString("en", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}`}</p>
       </div>
     </CardWrapper>
   );

@@ -55,6 +55,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    // posts         Blogpost[]
 }
 
 model VerificationToken {
@@ -75,11 +76,14 @@ model Guestbook {
 model Blogpost {
   id    String @unique @default(uuid())
   title String
-  body  String
+  body  String?
   tags  String[]
   image String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  // published Boolean @default(false)
+  // authorId String
+  // author User @relation(fields: [authorId], references: [id])
 }
 
 model Personalinfo {
