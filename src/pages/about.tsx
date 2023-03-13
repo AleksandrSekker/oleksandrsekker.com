@@ -21,7 +21,7 @@ const About = () => {
           className="m-auto max-w-screen-xl grid-cols-3 gap-8 md:grid"
           key={id}
         >
-          <RightBlockWrapper className="col-span-2" hoverX={50} hoverY={50}>
+          <RightBlockWrapper className="col-span-2">
             <PageTitle title={title} />
             {body.map((paragraph) => (
               <p key={paragraph} className="py-2 text-black dark:text-white">

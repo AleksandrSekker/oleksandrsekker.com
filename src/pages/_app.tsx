@@ -18,10 +18,10 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   const router = useRouter();
-
+  console.log(router.pathname);
   return (
     <SessionProvider session={session}>
-      <Layout>
+      <Layout isAdmin={router.pathname.includes("admin")}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={router.pathname}
