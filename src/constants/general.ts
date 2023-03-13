@@ -47,6 +47,63 @@ export const links = [
   },
 ];
 
+export const stats = [
+  {
+    statSubtitle: "TRAFFIC",
+    statTitle: "350,897",
+    statArrow: "up",
+    statPercent: "3.48",
+    statPercentColor: "text-emerald-500",
+    statDescription: "Since last month",
+    statIconName: "far fa-chart-bar",
+    statIconColor: "bg-red-500",
+    id: 1,
+  },
+  {
+    statSubtitle: "TRAFFIC",
+    statTitle: "350,897",
+    statArrow: "up",
+    statPercent: "3.48",
+    statPercentColor: "text-emerald-500",
+    statDescription: "Since last month",
+    statIconName: "far fa-chart-bar",
+    statIconColor: "bg-red-500",
+    id: 2,
+  },
+  {
+    statSubtitle: "TRAFFIC",
+    statTitle: "350,897",
+    statArrow: "up",
+    statPercent: "3.48",
+    statPercentColor: "text-emerald-500",
+    statDescription: "Since last month",
+    statIconName: "far fa-chart-bar",
+    statIconColor: "bg-red-500",
+    id: 3,
+  },
+  {
+    statSubtitle: "TRAFFIC",
+    statTitle: "350,897",
+    statArrow: "up",
+    statPercent: "3.48",
+    statPercentColor: "text-emerald-500",
+    statDescription: "Since last month",
+    statIconName: "far fa-chart-bar",
+    statIconColor: "bg-red-500",
+    id: 4,
+  },
+];
+export const AdminPagesLinks = [
+  { title: "Home", link: "/admin/home", id: 1 },
+  { title: "About", link: "/admin/about", id: 2 },
+  { title: "Projects", link: "/admin/projects", id: 3 },
+  { title: "Skills", link: "/admin/skills", id: 4 },
+];
+export const AdminBlogLinks = [
+  { title: "Create Post", link: "/admin/blog/create", id: 1 },
+  { title: "Post Overview", link: "/admin/blog/edit", id: 2 },
+];
+
 export const user = {
   firstName: "Oleksandr",
   lastName: "Sekker",
@@ -58,7 +115,7 @@ export const routes = [
   { title: "Projects", link: "/projects", icon: faBriefcase, id: 3 },
   { title: "Skills", link: "/skills", icon: faBlog, id: 4 },
   { title: "Contact", link: "/contact", icon: faContactCard, id: 5 },
-  // { title: "Blog", link: "/blog", icon: faBlog, id: 6 },
+  { title: "Blog", link: "/blog", icon: faBlog, id: 6 },
 ];
 
 export const placeholderImage = "/assets/DefaultProject.jpg";

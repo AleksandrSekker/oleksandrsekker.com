@@ -1,42 +1,35 @@
 import React from "react";
 import Image from "next/image";
 import CardWrapper from "~/components/CardWrapper/CardWrapper";
-import parse from "html-react-parser";
+import Link from "next/link";
+import PostDate from "~/components/PostDate/PostDate";
+import Tags from "~/components/tags/Tags";
 
 interface BlogPostProps {
   id: string;
   title: string;
-  body: string;
   tags: string[];
   image: string;
   updatedAt: Date;
 }
-const BlogPost = ({
-  id,
-  title,
-  image,
-  tags,
-  updatedAt,
-  body,
-}: BlogPostProps) => {
+const BlogPost = ({ id, title, image, tags, updatedAt }: BlogPostProps) => {
   return (
     <CardWrapper>
-      <div key={id}>
-        <p>{title}</p>
-        <div className="m-auto">
-          <Image src={image} alt={title} width={400} height={400} />
-        </div>
-        <div>
-          {tags.map((tag) => (
-            <p key={tag}>{tag}</p>
-          ))}
-        </div>
-        <article className="prose lg:prose-xl">{parse(body)}</article>
-        <p>{`Updated at: ${updatedAt.toLocaleDateString("en", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}`}</p>
+      <div className={"prose lg:prose-xl dark:text-white"} key={id}>
+        <h2 className={"dark:text-white"}>{title}</h2>
+        <Image
+          className={"h-60"}
+          src={image}
+          alt={title}
+          width={400}
+          height={400}
+        />
+        <PostDate updatedAt={updatedAt} />
+        <Tags tags={tags} />
+        <p>Description</p>
+        <Link className={"decoration-none text-blue-700"} href={`/blog/${id}`}>
+          Read more
+        </Link>
       </div>
     </CardWrapper>
   );

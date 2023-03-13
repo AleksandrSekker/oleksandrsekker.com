@@ -7,7 +7,6 @@ export const blogpostRouter = createTRPCRouter({
       return await ctx.prisma.blogpost.findMany({
         select: {
           title: true,
-          body: true,
           tags: true,
           image: true,
           createdAt: true,
@@ -22,6 +21,30 @@ export const blogpostRouter = createTRPCRouter({
       console.log("error", error);
     }
   }),
+  getOne: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
+    .query(async ({ ctx, input }) => {
+      try {
+        return await ctx.prisma.blogpost.findUnique({
+          where: {
+            id: input.id,
+          },
+          select: {
+            title: true,
+            body: true,
+            tags: true,
+            updatedAt: true,
+            id: true,
+          },
+        });
+      } catch (error) {
+        console.log("error", error);
+      }
+    }),
   postMessage: protectedProcedure
     .input(
       z.object({
