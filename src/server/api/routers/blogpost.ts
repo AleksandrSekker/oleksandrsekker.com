@@ -8,6 +8,7 @@ export const blogpostRouter = createTRPCRouter({
         select: {
           title: true,
           tags: true,
+          description: true,
           image: true,
           createdAt: true,
           updatedAt: true,
@@ -36,6 +37,7 @@ export const blogpostRouter = createTRPCRouter({
           select: {
             title: true,
             body: true,
+            description: true,
             tags: true,
             updatedAt: true,
             id: true,
@@ -50,6 +52,7 @@ export const blogpostRouter = createTRPCRouter({
       z.object({
         title: z.string(),
         body: z.string(),
+        description: z.string(),
         tags: z.array(z.string()),
         image: z.string(),
       })
@@ -60,6 +63,7 @@ export const blogpostRouter = createTRPCRouter({
           data: {
             title: input.title,
             body: input.body,
+            description: input.description,
             tags: input.tags,
             image: input.image,
           },
