@@ -9,8 +9,7 @@ import PostDate from "~/components/PostDate/PostDate";
 const PostItem = () => {
   const router = useRouter();
   const { id } = router.query;
-  console.log(id);
-  console.log(router);
+
   const { data: post, isLoading } = api.blogpost.getOne.useQuery({
     id: id as string,
   });
