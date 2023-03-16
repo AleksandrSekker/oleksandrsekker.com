@@ -94,14 +94,14 @@ export const stats = [
   },
 ];
 export const AdminPagesLinks = [
-  { title: "Home", link: "/admin/home", id: 1 },
-  { title: "About", link: "/admin/about", id: 2 },
-  { title: "Projects", link: "/admin/projects", id: 3 },
-  { title: "Skills", link: "/admin/skills", id: 4 },
+  { title: "Home", link: "/admin/pages/home", id: 1 },
+  { title: "About", link: "/admin/pages/about", id: 2 },
+  { title: "Projects", link: "/admin/pages/projects", id: 3 },
+  { title: "Skills", link: "/admin/pages/skills", id: 4 },
 ];
 export const AdminBlogLinks = [
   { title: "Create Post", link: "/admin/blog/create", id: 1 },
-  { title: "Post Overview", link: "/admin/blog/edit", id: 2 },
+  { title: "Post Overview", link: "/admin/blog/overview", id: 2 },
 ];
 
 export const user = {

@@ -10,7 +10,6 @@ export const blogpostRouter = createTRPCRouter({
           tags: true,
           description: true,
           image: true,
-          createdAt: true,
           updatedAt: true,
           id: true,
         },
@@ -37,10 +36,6 @@ export const blogpostRouter = createTRPCRouter({
           select: {
             title: true,
             body: true,
-            description: true,
-            tags: true,
-            updatedAt: true,
-            id: true,
           },
         });
       } catch (error) {
@@ -55,6 +50,8 @@ export const blogpostRouter = createTRPCRouter({
         description: z.string(),
         tags: z.array(z.string()),
         image: z.string(),
+        id: z.string(),
+        updatedAt: z.date(),
       })
     )
     .mutation(async ({ ctx, input }) => {

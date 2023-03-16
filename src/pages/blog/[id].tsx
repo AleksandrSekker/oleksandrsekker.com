@@ -20,11 +20,13 @@ const PostItem = () => {
     <div className="mx-auto my-4 flex flex max-w-screen-xl justify-center">
       {post && (
         <div>
-          <article className="prose lg:prose-xl dark:text-white">
+          <article className="prose lg:prose-xl">
             <h1 className={"dark:text-white"}>{post.title}</h1>
             <PostDate updatedAt={post.updatedAt} />
             <Tags tags={post.tags} />
-            {parse(post.body as string)}
+            <div className={"dark:text-white"}>
+              {parse(post.body as string) || "No content"}
+            </div>
           </article>
         </div>
       )}

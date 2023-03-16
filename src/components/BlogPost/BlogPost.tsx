@@ -10,9 +10,17 @@ interface BlogPostProps {
   title: string;
   tags: string[];
   image: string;
+  description: string;
   updatedAt: Date;
 }
-const BlogPost = ({ id, title, image, tags, updatedAt }: BlogPostProps) => {
+const BlogPost = ({
+  id,
+  title,
+  image,
+  tags,
+  updatedAt,
+  description,
+}: BlogPostProps) => {
   return (
     <CardWrapper>
       <div className={"prose lg:prose-xl dark:text-white"} key={id}>
@@ -26,7 +34,7 @@ const BlogPost = ({ id, title, image, tags, updatedAt }: BlogPostProps) => {
         />
         <PostDate updatedAt={updatedAt} />
         <Tags tags={tags} />
-        <p>Description</p>
+        <p>{description}</p>
         <Link className={"decoration-none text-blue-700"} href={`/blog/${id}`}>
           Read more
         </Link>

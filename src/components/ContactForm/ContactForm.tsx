@@ -5,9 +5,6 @@ import Input from "~/components/Input/Input";
 import { schema } from "~/components/ContactForm/schema";
 import axios from "axios";
 
-type Props = {
-  t: (key: string) => string;
-};
 type SendMailTypes = {
   email: string;
   subject: string;
@@ -15,7 +12,7 @@ type SendMailTypes = {
   name: string;
   phone: string;
 };
-const ContactForm = ({ t }: Props) => {
+const ContactForm = () => {
   const [responseMessage, setResponseMessage] = useState({
     isSuccessful: false,
     message: "",
@@ -68,8 +65,8 @@ const ContactForm = ({ t }: Props) => {
     <form onSubmit={handleSubmit(sendHandler)}>
       <div className="grid w-full gap-4 py-2 md:grid-cols-2">
         <Input
-          title={t("name")}
-          placeholder={t("namePlaceholder")}
+          title={"Name"}
+          placeholder={"Type your name"}
           type={"text"}
           register={register}
           name="name"
@@ -77,8 +74,8 @@ const ContactForm = ({ t }: Props) => {
           className={"flex flex-col"}
         />
         <Input
-          title={t("phone")}
-          placeholder={t("phonePlaceholder")}
+          title={"Phone"}
+          placeholder={"Type your phone number"}
           type={"text"}
           register={register}
           name="phone"
@@ -87,8 +84,8 @@ const ContactForm = ({ t }: Props) => {
         />
       </div>
       <Input
-        title={t("email")}
-        placeholder={t("emailPlaceholder")}
+        title={"Email"}
+        placeholder="Type your email"
         type={"text"}
         register={register}
         name="email"
@@ -97,8 +94,8 @@ const ContactForm = ({ t }: Props) => {
       />
       <Input
         className="flex flex-col py-2"
-        title={t("subject")}
-        placeholder={t("subjectPlaceholder")}
+        title={"Subject"}
+        placeholder={"Type subject"}
         type={"textarea"}
         register={register}
         name="subject"
@@ -106,8 +103,8 @@ const ContactForm = ({ t }: Props) => {
       />
       <Input
         className="flex flex-col py-2"
-        title={t("message")}
-        placeholder={t("messagePlaceholder")}
+        title={"Message"}
+        placeholder={"Type your message"}
         type={"textarea"}
         register={register}
         name="message"
@@ -118,7 +115,7 @@ const ContactForm = ({ t }: Props) => {
         type={"submit"}
         className="mt-4 w-full rounded-2xl bg-blue-500 p-4 text-gray-100 dark:bg-gray-800"
       >
-        {t("submit")}
+        {"submit"}
       </button>
     </form>
   );

@@ -65,7 +65,7 @@ const AdminSidebar = () => {
             <hr className="my-4 md:min-w-full" />
 
             <h6 className="text-blueGray-500 block pt-1 pb-4 text-xs font-bold uppercase no-underline md:min-w-full">
-              Pages
+              Blog
             </h6>
 
             <ul className="flex list-none flex-col md:min-w-full md:flex-col">
