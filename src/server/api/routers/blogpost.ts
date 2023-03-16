@@ -36,6 +36,8 @@ export const blogpostRouter = createTRPCRouter({
           select: {
             title: true,
             body: true,
+            tags: true,
+            updatedAt: true,
           },
         });
       } catch (error) {
