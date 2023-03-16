@@ -2,8 +2,6 @@ import BlogPost from "~/components/BlogPost/BlogPost";
 import { api } from "~/utils/api";
 import { CircleLoader } from "react-spinners";
 import React from "react";
-import Settings from "~/pages/admin/settings";
-import Layout from "~/layout/Layout";
 
 export default function Index() {
   const { data: blogPostEntries, isLoading } = api.blogpost.getAll.useQuery();
@@ -21,10 +19,10 @@ export default function Index() {
             image={entry.image}
             tags={entry.tags}
             updatedAt={entry.updatedAt}
+            description={entry.description}
           />
         ))}
       </div>
     </div>
   );
 }
-Settings.layout = Layout;

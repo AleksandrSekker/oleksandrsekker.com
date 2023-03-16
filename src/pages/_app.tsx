@@ -6,9 +6,7 @@ import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 import Layout from "~/layout/Layout";
-import { appWithTranslation } from "next-i18next";
 
-import nextI18nConfig from "../../next-i18next.config.mjs";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import React from "react";
@@ -38,7 +36,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
   );
 };
 
-const I18nApp = appWithTranslation(MyApp, nextI18nConfig);
-const TRPCApp = api.withTRPC(I18nApp);
+const TRPCApp = api.withTRPC(MyApp);
 
 export default TRPCApp;

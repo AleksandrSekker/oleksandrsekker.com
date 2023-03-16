@@ -26,6 +26,7 @@ export const personalInfoRouter = createTRPCRouter({
         jobTitle: z.string(),
         subTitle: z.string(),
         image: z.string(),
+        id: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {

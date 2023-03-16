@@ -1,4 +1,5 @@
 import React from "react";
+import { signOut } from "next-auth/react";
 
 export default function Navbar() {
   return (
@@ -12,7 +13,13 @@ export default function Navbar() {
             Dashboard
           </p>
           <ul className="hidden list-none flex-col items-center md:flex md:flex-row">
-            <button>Logout</button>
+            <button
+              onClick={() => {
+                signOut().catch(console.log);
+              }}
+            >
+              Logout
+            </button>
           </ul>
         </div>
       </nav>
