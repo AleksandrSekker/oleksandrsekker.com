@@ -1,10 +1,11 @@
 import React, { useCallback } from "react";
-import { useSession } from "next-auth/react";
 import { api } from "~/utils/api";
-import { type FieldError, useForm } from "react-hook-form";
+import { type FieldError, type FieldValues, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Input from "~/components/Input/Input";
+import { useRouter } from "next/router";
+import { CircleLoader } from "react-spinners";
 
 interface IFormInput {
   title: string;
@@ -15,14 +16,18 @@ interface IFormInput {
   updatedAt: Date;
   id: string;
 }
-const NewPost = () => {
-  const { status } = useSession();
+const EditPost = () => {
+  const router = useRouter();
+  const { id } = router.query;
 
+  const { data: post, isLoading } = api.blogpost.getOne.useQuery({
+    id: id as string,
+  });
   const utils = api.useContext();
-  const postMessage = api.blogpost.postMessage.useMutation({
+  const postMessage = api.blogpost.updateMessage.useMutation({
     onMutate: async (newEntry) => {
-      await utils.blogpost.getAll.cancel();
-      utils.blogpost.getAll.setData(undefined, (prevEntries) => {
+      await utils.blogpost.getOne.cancel();
+      utils.blogpost.getOne.setData({ id: id as string }, (prevEntries) => {
         if (prevEntries) {
           return [newEntry, ...prevEntries];
         } else {
@@ -31,10 +36,9 @@ const NewPost = () => {
       });
     },
     onSettled: async () => {
-      await utils.blogpost.getAll.invalidate();
+      await utils.blogpost.getOne.invalidate();
     },
   });
-
   const { register, handleSubmit, formState, watch } = useForm({
     resolver: zodResolver(
       z.object({
@@ -42,10 +46,11 @@ const NewPost = () => {
         description: z.string(),
         body: z.string(),
         image: z.string(),
-        tags: z.string(),
+        tags: z.string() || z.array(z.string()),
       })
     ),
     mode: "onSubmit",
+    defaultValues: post as FieldValues,
   });
   const { errors } = formState;
 
@@ -58,7 +63,15 @@ const NewPost = () => {
       tags: watch("tags") ? watch("tags").split(",") : [""],
     } as IFormInput);
   }, [postMessage, watch]);
-  return status === "authenticated" ? (
+
+  if (isLoading) {
+    return (
+      <div>
+        <CircleLoader className={"mx-auto"} color="#36d7b7" />;
+      </div>
+    );
+  }
+  return (
     <form
       className="mx-auto mt-40 flex max-w-screen-xl flex-col gap-2"
       onSubmit={handleSubmit(sendHandler)}
@@ -115,7 +128,7 @@ const NewPost = () => {
         Submit
       </button>
     </form>
-  ) : null;
+  );
 };
 
-export default NewPost;
+export default EditPost;

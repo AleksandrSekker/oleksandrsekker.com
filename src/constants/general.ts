@@ -109,6 +109,14 @@ export const user = {
   lastName: "Sekker",
 };
 
+export const tableHeader = [
+  { title: "Title", id: 1 },
+  { title: "Description", id: 2 },
+  { title: "Tags", id: 3 },
+  { title: "Edit", id: 4 },
+  { title: "Delete", id: 5 },
+  { title: "Update date", id: 6 },
+];
 export const routes = [
   { title: "Home", link: "/", icon: faHome, id: 1 },
   { title: "About", link: "/about", icon: faInfo, id: 2 },

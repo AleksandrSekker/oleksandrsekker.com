@@ -6,6 +6,10 @@ import Link from "next/link";
 import React from "react";
 import { api } from "~/utils/api";
 import { CircleLoader } from "react-spinners";
+import About from "~/pages/about";
+import Projects from "~/pages/projects";
+import Skills from "~/pages/skills";
+import Contact from "~/pages/contact";
 
 const Home: NextPage = () => {
   const { data: personaInformation, isLoading } =
@@ -39,7 +43,7 @@ const Home: NextPage = () => {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className={"mt-6 "}
+                  className={"mt-6 mb-8"}
                 >
                   <Link
                     className="rounded-lg bg-blue-400 px-6 py-3 text-lg font-medium text-white outline-none hover:bg-blue-500 focus:outline-none dark:bg-gray-700 hover:dark:bg-gray-900"
@@ -54,6 +58,12 @@ const Home: NextPage = () => {
           </div>
         )
       )}
+      <div className={"block md:hidden"}>
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+      </div>
     </>
   );
 };

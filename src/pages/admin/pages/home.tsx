@@ -34,7 +34,8 @@ const Home = () => {
   const { errors } = formState;
 
   const utils = api.useContext();
-  const postMessage = api.personalInfo.postMessage.useMutation({
+
+  const postMessage = api.personalInfo.updateMessage.useMutation({
     onMutate: async (newEntry) => {
       await utils.personalInfo.getAll.cancel();
       utils.personalInfo.getAll.setData(undefined, (prevEntries) => {
