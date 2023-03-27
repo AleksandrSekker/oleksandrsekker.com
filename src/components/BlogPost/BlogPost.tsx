@@ -23,8 +23,8 @@ const BlogPost = ({
 }: BlogPostProps) => {
   return (
     <CardWrapper>
-      <div className={"prose lg:prose-xl dark:text-white"} key={id}>
-        <h2 className={"dark:text-white"}>{title}</h2>
+      <div className={"prose dark:prose-invert lg:prose-xl"} key={id}>
+        <h2>{title}</h2>
         <Image
           className={"h-60"}
           src={image}

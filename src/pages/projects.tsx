@@ -12,7 +12,7 @@ const Projects = () => {
   }
   return (
     <div className="mx-auto max-w-screen-xl p-2">
-      <PageTitle title={"workProjects"} className="mb-4" />
+      <PageTitle title={"Work Projects"} className="mb-4" />
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 ">
         {projects?.map(({ title, image, tags, link, id }) => (
           <ProjectItem
