@@ -1,23 +1,12 @@
 import Link from "next/link";
-import React, { Fragment, useEffect, useState } from "react";
+import React from "react";
 import { routes } from "~/constants/general";
-import useDarkMode from "~/hooks/useDarkMode";
-import { Switch } from "@headlessui/react";
 import Sidebar from "~/layout/Sidebar/Sidebar";
 import { useRouter } from "next/router";
 import Logo from "~/components/Logo/Logo";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import ThemeSwitch from "~/components/Switch/ThemeSwitch";
 
 const Header = () => {
-  const [theme, setTheme] = useDarkMode();
-  const [enabled, setEnabled] = useState(true);
-  useEffect(() => {
-    setEnabled((localStorage.getItem("theme") as string) === "dark");
-  }, []);
-  useEffect(() => {
-    setTheme(enabled ? "dark" : "light");
-  }, [enabled, setTheme, theme]);
   const router = useRouter();
 
   return (
@@ -29,55 +18,13 @@ const Header = () => {
               <Logo />
             </Link>
             <div className=" flex md:hidden">
-              <Switch checked={enabled} onChange={setEnabled} as={Fragment}>
-                {({ checked }) => (
-                  <button
-                    className={`${
-                      checked ? "bg-blue-600" : "bg-gray-500"
-                    } relative inline-flex h-6 w-12 items-center rounded-full`}
-                  >
-                    <span className="sr-only">Enable notifications</span>
-                    <span
-                      className={`${
-                        checked ? "translate-x-6" : "translate-x-1"
-                      } inline-block flex h-5 w-5 transform items-center justify-center rounded-full bg-white transition `}
-                    >
-                      {checked ? (
-                        <FontAwesomeIcon icon={faMoon} />
-                      ) : (
-                        <FontAwesomeIcon icon={faSun} />
-                      )}
-                    </span>
-                  </button>
-                )}
-              </Switch>
+              <ThemeSwitch />
             </div>
           </div>
           <div className="flex items-center lg:order-2">
-            <div className={"my-auto hidden h-12 lg:flex"}>
+            <div className={"my-auto mr-8 hidden h-12 md:flex"}>
               <div className={"my-auto ml-2"}>
-                <Switch checked={enabled} onChange={setEnabled} as={Fragment}>
-                  {({ checked }) => (
-                    <button
-                      className={`${
-                        checked ? "bg-blue-600" : "bg-gray-500"
-                      } relative inline-flex h-6 w-12 items-center rounded-full`}
-                    >
-                      <span className="sr-only">Enable notifications</span>
-                      <span
-                        className={`${
-                          checked ? "translate-x-6" : "translate-x-1"
-                        } inline-block flex h-5 w-5 transform items-center justify-center rounded-full bg-white transition `}
-                      >
-                        {checked ? (
-                          <FontAwesomeIcon icon={faMoon} />
-                        ) : (
-                          <FontAwesomeIcon icon={faSun} />
-                        )}
-                      </span>
-                    </button>
-                  )}
-                </Switch>
+                <ThemeSwitch />
               </div>
             </div>
             <div className={"flex bg-blue-600 lg:hidden"}>

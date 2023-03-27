@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const variants = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2, zIndex: 1 },
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
     x: 0,
   },
   closed: {
