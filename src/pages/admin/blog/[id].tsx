@@ -18,21 +18,17 @@ interface IFormInput {
 }
 const EditPost = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { id } = router.query as { id: string };
 
   const { data: post, isLoading } = api.blogpost.getOne.useQuery({
-    id: id as string,
+    id: id,
   });
   const utils = api.useContext();
   const postMessage = api.blogpost.updateMessage.useMutation({
     onMutate: async (newEntry) => {
       await utils.blogpost.getOne.cancel();
-      utils.blogpost.getOne.setData({ id: id as string }, (prevEntries) => {
-        if (prevEntries) {
-          return [newEntry, ...prevEntries];
-        } else {
-          return [newEntry];
-        }
+      utils.blogpost.getOne.setData({ id: id }, () => {
+        return newEntry;
       });
     },
     onSettled: async () => {
@@ -46,7 +42,8 @@ const EditPost = () => {
         description: z.string(),
         body: z.string(),
         image: z.string(),
-        tags: z.string() || z.array(z.string()),
+        tags: z.array(z.string()),
+        id: z.string(),
       })
     ),
     mode: "onSubmit",
@@ -54,16 +51,29 @@ const EditPost = () => {
   });
   const { errors } = formState;
 
+  const getTags = useCallback(() => {
+    if (watch("tags") && typeof watch("tags") === "string") {
+      return watch("tags").split(",");
+    }
+    if (Array.isArray(watch("tags"))) {
+      return watch("tags");
+    }
+    return [""];
+  }, [watch]);
+
   const sendHandler = useCallback(async () => {
     postMessage.mutate({
       title: watch("title"),
       description: watch("description"),
       body: watch("body"),
       image: watch("image"),
-      tags: watch("tags") ? watch("tags").split(",") : [""],
+      tags: getTags(),
+      id: id,
+      updatedAt: new Date(),
     } as IFormInput);
-  }, [postMessage, watch]);
+  }, [getTags, id, postMessage, watch]);
 
+  console.log("getTags", getTags());
   if (isLoading) {
     return (
       <div>
@@ -71,6 +81,7 @@ const EditPost = () => {
       </div>
     );
   }
+
   return (
     <form
       className="mx-auto mt-40 flex max-w-screen-xl flex-col gap-2"
