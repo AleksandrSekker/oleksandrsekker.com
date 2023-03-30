@@ -17,12 +17,12 @@ const Header = () => {
             <Link href={"/"}>
               <Logo />
             </Link>
-            <div className=" flex md:hidden">
+            <div className="flex lg:hidden">
               <ThemeSwitch />
             </div>
           </div>
           <div className="flex items-center lg:order-2">
-            <div className={"my-auto mr-8 hidden h-12 md:flex"}>
+            <div className={"my-auto mr-8 hidden h-12 lg:flex"}>
               <div className={"my-auto ml-2"}>
                 <ThemeSwitch />
               </div>
