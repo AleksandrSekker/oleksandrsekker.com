@@ -56,20 +56,11 @@ const Home: NextPage = () => {
           </div>
         )
       )}
-      <div className={"block"}>
-        <div className="lg:h-screen">
-          <About />
-        </div>
-
-        <div className="lg:h-screen">
-          <Projects />
-        </div>
-        <div className="lg:h-screen">
-          <Skills />
-        </div>
-        <div className="lg:h-screen">
-          <Contact />
-        </div>
+      <div className={"lg:hidden"}>
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
       </div>
     </>
   );
