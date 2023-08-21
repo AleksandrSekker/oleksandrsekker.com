@@ -4,15 +4,10 @@ import {
   faInstagram,
   faLinkedin,
   faTelegram,
-  faTwitter,
+  faTwitter
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faBlog,
-  faBriefcase,
-  faContactCard,
-  faHome,
-  faInfo,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBlog, faBriefcase, faContactCard, faHome, faInfo } from "@fortawesome/free-solid-svg-icons";
+
 export const links = [
   {
     link: "https://discordapp.com/users/613024264706064390",
@@ -123,7 +118,7 @@ export const routes = [
   { title: "Projects", link: "/projects", icon: faBriefcase, id: 3 },
   { title: "Skills", link: "/skills", icon: faBlog, id: 4 },
   { title: "Contact", link: "/contact", icon: faContactCard, id: 5 },
-  { title: "Blog", link: "/blog", icon: faBlog, id: 6 },
+  // { title: "Blog", link: "/blog", icon: faBlog, id: 6 },
 ];
 
 export const placeholderImage = "/assets/DefaultProject.jpg";

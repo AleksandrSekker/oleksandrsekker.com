@@ -6,16 +6,25 @@ import { routes } from "~/constants/general";
 import Link from "next/link";
 
 const variants = {
-  open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
-    x: 0,
-  },
   closed: {
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.2,
       staggerDirection: -1,
+      when: "afterChildren", // Stagger first, then animate the sidebar
+      delayChildren: 0.2, // Delay before starting stagger animation
     },
-    x: -400,
+    x: -1000,
+
+  },
+  open: {
+    transition: {
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+      delayChildren: 0.2, // Delay before starting stagger animation
+      when: "beforeChildren", // Animate the sidebar first, then stagger
+    },
+    x: 0,
+
   },
 };
 interface ToggleInterface {

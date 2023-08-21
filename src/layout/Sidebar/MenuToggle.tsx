@@ -2,6 +2,7 @@ import React from "react";
 import type { SVGMotionProps } from "framer-motion";
 import { motion } from "framer-motion";
 import styles from "./sass/sidebar.module.scss";
+
 const Path = (
   props: JSX.IntrinsicAttributes &
     SVGMotionProps<SVGPathElement> &
