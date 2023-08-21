@@ -15,6 +15,7 @@ const Home: NextPage = () => {
   const { data: personaInformation, isLoading } =
     api.personalInfo.getAll.useQuery();
 
+
   if (isLoading) {
     return (
       <div>
@@ -29,7 +30,7 @@ const Home: NextPage = () => {
         ({ firstName, jobTitle, subTitle, image, id }) => (
           <div
             key={id}
-            className="mx-auto flex w-full max-w-screen-xl flex-wrap items-center justify-between px-4 text-center lg:h-screen xl:px-0"
+            className="mx-auto flex w-full max-w-screen-xl flex-wrap items-center justify-between px-4 text-center xl:px-0"
           >
             <RightBlockWrapper className="mx-auto mt-4 text-center lg:mx-0">
               <motion.h2 className="py-2 text-5xl font-medium text-teal-400 dark:text-blue-500 md:text-6xl">
